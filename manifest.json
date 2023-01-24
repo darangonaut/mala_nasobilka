@@ -1,0 +1,9 @@
+{
+    "name": "Maly poctar PWA",
+    "short_name": "Maly poctar",
+    "start_url": "index.html",
+    "display": "standalone",
+    "theme_color": "#5BC4EB",
+    "background_color": "#C0E8F4"
+  }
+  

@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Maly poctar PWA</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link href="dist/output.css" rel="stylesheet">
+
+
+</head>
+
+<body class="container bg-slate-600">
+  <main class="main-wrap text-white  p-4 flex flex-col justify-between min-h-screen items-center">
+    <div id="js-pocty" class="flex flex-col items-center w-full">
+      <div id="score">
+        Nasobilka do <span id="js-show-max-number">10</span><br>
+        Aktualna rada bez chyby: <span id="score-number">0</span><br>
+        Najdlhsia rada bez chyby: <span id="score-max">0</span>
+      </div>
+
+      <div id="problem" class="text-6xl p-12"></div>
+
+      <div id="options" class="columns is-mobile grid gap-4 grid-cols-2 w-4/5">
+        <button class="button bg-slate-400 active:bg-gray-800 p-6 w-full rounded text-3xl" id="option1">1</button>
+        <button class="button bg-slate-400 active:bg-gray-800 p-6 w-full rounded text-3xl" id="option2">23</button>
+        <button class="button bg-slate-400 active:bg-gray-800 p-6 w-full rounded text-3xl" id="option3">3</button>
+        <button class="button bg-slate-400 active:bg-gray-800 p-6 w-full rounded text-3xl" id="option4">4</button>
+      </div>
+    </div>
+
+    <div id="js-nastaveni" style="display: none;">
+      <div class="columns is-mobile">
+        <div class="column">
+          <div class="field flex flex-col">
+            <label class="label">Koncova hodnota</label>
+            <div class="control">
+              <input class="input text-black p-4 text-xl" type="number" id="max-number" value="10">
+            </div>
+            <button id="js-save" class="button bg-slate-400 p-4 rounded">Ulozit</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <button id="js-setting" class="button bg-slate-400 p-4 mb-4 rounded">Settings</button>
+  </main>
+
+  <script src="js/main.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('/sw.js').then(function (registration) {
+          // Registration was successful
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+          // registration failed :(
+          console.log('ServiceWorker registration failed: ', err);
+        });
+      });
+    }
+  </script>
+</body>
+
+</html>
